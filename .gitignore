@@ -1,2 +1,7 @@
 main
 main.c
+*.out
+*.exe
+*.o
+.DS_Store
+/.DS_Store
