@@ -3,5 +3,6 @@ main.c
 *.out
 *.exe
 *.o
+*_0.c
 .DS_Store
 /.DS_Store

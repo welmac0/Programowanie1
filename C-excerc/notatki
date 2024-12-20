@@ -1,7 +1,0 @@
-#include<stdlib.h>
-#include<time.h>
-
-srand(time(NULL));
-
-int huj = a+(rand()%(b-a+1) // liczby z przedzialu [a, b]
-
