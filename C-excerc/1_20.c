@@ -17,20 +17,26 @@ int main() {
     return 0;
 }
 
-int get_line(void) {
-    extern char line[MAXLINE];
-    char c;
-    int i = 0;
-    while ((c=getchar()) != EOF) {
+int get_line(void) { // zmienione przez gpt na potrzeby 5.12
+    int c, i = 0, pos = 0;
+
+    while ((c = getchar()) != EOF && c != '\n' && i < MAXLINE - 1) {
         if (c == '\t') {
-            for (int j = 0; j < TABULATOR; j ++)
-                line[i+j] = 'v';
-            i += TABULATOR;
+            int spaces = TABULATOR - (pos % TABULATOR); // Liczba spacji do najbliższego punktu tabulacji
+            if (i + spaces >= MAXLINE - 1) // Zapobiega przepełnieniu
+                break;
+            for (int j = 0; j < spaces; j++) {
+                line[i++] = ' ';
+                pos++;
+            }
         } else {
-            line[i] = c;
-            ++i;
+            line[i++] = c;
+            pos++;
         }
     }
-    line[i] = '\0';
+    if (c == '\n') {
+        line[i++] = c;
+    }
+    line[i] = '\0'; // Kończy linię
     return i;
 }

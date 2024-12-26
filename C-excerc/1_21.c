@@ -30,8 +30,8 @@ int get_line(void)
         {
             if (sc > 0)
             {
-                int tabs = sc / 4;
-                sc %= 4;
+                int tabs = sc / TABULATOR;
+                sc %= TABULATOR;
                 for (int j = 0; j < tabs; j++)
                     line[i++] = '\t';
                 for (int j = 0; j < sc; j++)
